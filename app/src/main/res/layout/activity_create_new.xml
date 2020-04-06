@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_new_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".ui.CreateNewActivity">
+
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/create_page_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:elevation="0dp">
+
+            <TextView
+                android:id="@+id/create_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/create_page_title"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/textSize" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/form_content_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar_layout"
+        android:visibility="visible">
+        <!--  Create Form Content  -->
+        <RelativeLayout
+            android:id="@+id/create_form_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/preview_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="@dimen/small_padding"
+                android:contentDescription="@string/preview_image"
+                android:scaleType="centerCrop"
+                android:src="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btn_upload_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/preview_image"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:backgroundTint="@color/secondaryColorAccent"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/upload_image"
+                android:textColor="@color/textColor" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_event_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_upload_image"
+                android:hint="@string/input_event_name_label"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/secondaryColorAccent"
+                app:boxStrokeWidth="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="@string/input_event_name_helper"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/secondaryColorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/event_name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_organizer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_event_name"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:hint="@string/input_organizer_hint"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/secondaryColorAccent"
+                app:boxStrokeWidth="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="@string/input_organizer_helper"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/secondaryColorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/event_organizer_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/date_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_organizer"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_date"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:hint="@string/input_date_hint"
+                    app:boxBackgroundColor="@color/colorPrimary"
+                    app:boxStrokeColor="@color/secondaryColorAccent"
+                    app:boxStrokeWidth="2dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="25"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:helperText="@string/input_date_helper"
+                    app:helperTextEnabled="true"
+                    app:hintTextColor="@color/secondaryColorAccent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/date_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_open_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/open_calendar"
+                    android:src="@drawable/ic_date_range_24dp" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_place"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_container"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:hint="@string/input_place_hint"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/secondaryColorAccent"
+                app:boxStrokeWidth="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="80"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="@string/input_place_helper"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/secondaryColorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/event_place_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/event_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_place"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/event_type_label" />
+
+            <RadioGroup
+                android:id="@+id/price_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/event_type_text"
+                android:layout_marginTop="@dimen/small_padding"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_paid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:text="@string/rb_paid_label" />
+
+                <RadioButton
+                    android:id="@+id/rb_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_free_button" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_radio_group"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:hint="@string/input_description_hint"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/secondaryColorAccent"
+                app:boxStrokeWidth="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="500"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="@string/input_description_helper"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/secondaryColorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/event_desc_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_price"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/input_description"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:hint="@string/input_price_hint"
+                app:boxBackgroundColor="@color/colorPrimary"
+                app:boxStrokeColor="@color/secondaryColorAccent"
+                app:boxStrokeWidth="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="500"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="@string/input_price_helper"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/secondaryColorAccent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/event_price_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

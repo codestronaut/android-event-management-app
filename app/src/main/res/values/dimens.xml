@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">24dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="big_margin">32dp</dimen>
+    <dimen name="titleTextSize">32sp</dimen>
+    <dimen name="subtitleTextSize">18sp</dimen>
+    <dimen name="textSize">16sp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="tiny_padding">4dp</dimen>
+    <dimen name="extra_margin">50dp</dimen>
+</resources>

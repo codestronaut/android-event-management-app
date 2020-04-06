@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "62178448490",
+    "firebase_url": "https://evma-13191.firebaseio.com",
+    "project_id": "evma-13191",
+    "storage_bucket": "evma-13191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62178448490:android:d337f5f2e02409c1a7e613",
+        "android_client_info": {
+          "package_name": "com.aditya.eva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62178448490-1hjgr7fatfjkaoqd8p2mv183crgts4e6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV1Ubw34yY6o0xJV3M-DwYjlBatIlCwlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62178448490-1hjgr7fatfjkaoqd8p2mv183crgts4e6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

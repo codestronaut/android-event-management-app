@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.detail.DetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/detail_collapse_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimaryDark"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/detail_event_poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/event_poster_image"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@color/colorPrimary"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <ProgressBar
+                android:id="@+id/detail_poster_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/detail_nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/description_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/detail_description_label"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/titleTextSize" />
+
+            <TextView
+                android:id="@+id/detail_event_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description_label"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/subtitleTextSize"
+                tools:text="@string/test" />
+
+            <TextView
+                android:id="@+id/detail_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_event_description"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/detail_label"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/titleTextSize" />
+
+            <TableLayout
+                android:id="@+id/detail_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_label"
+
+                android:layout_marginTop="@dimen/small_padding">
+
+                <TableRow
+                    android:background="@color/colorPrimaryDark"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="@dimen/tiny_padding"
+                        android:text="@string/organizer_column"
+                        android:textSize="@dimen/subtitleTextSize" />
+
+                    <TextView
+                        android:id="@+id/detail_event_organizer"
+                        android:gravity="start"
+                        android:padding="@dimen/tiny_padding"
+                        android:textSize="@dimen/subtitleTextSize"
+                        tools:text="AEJ Jakarta" />
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/colorPrimaryDark"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="@dimen/tiny_padding"
+                        android:text="@string/date_column"
+                        android:textSize="@dimen/subtitleTextSize" />
+
+                    <TextView
+                        android:id="@+id/detail_event_date"
+                        android:gravity="start"
+                        android:padding="@dimen/tiny_padding"
+                        android:textSize="@dimen/subtitleTextSize"
+                        tools:text="March, 20th 2020" />
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/colorPrimaryDark"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="@dimen/tiny_padding"
+                        android:text="@string/place_column"
+                        android:textSize="@dimen/subtitleTextSize" />
+
+                    <TextView
+                        android:id="@+id/detail_event_place"
+                        android:gravity="start"
+                        android:padding="@dimen/tiny_padding"
+                        android:textSize="@dimen/subtitleTextSize"
+                        tools:text="Central Jakarta" />
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/colorPrimaryDark"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="@dimen/tiny_padding"
+                        android:text="@string/ticket_price_column"
+                        android:textSize="@dimen/subtitleTextSize" />
+
+                    <TextView
+                        android:id="@+id/detail_event_price"
+                        android:gravity="start"
+                        android:padding="@dimen/tiny_padding"
+                        android:textSize="@dimen/subtitleTextSize"
+                        tools:text="$25" />
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:id="@+id/horizontal_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/detail_table"
+                android:layout_marginTop="@dimen/small_padding"
+                android:background="@color/textColor" />
+
+            <TextView
+                android:id="@+id/map_location_label"
+                android:text="@string/event_location_label"
+                android:textSize="@dimen/titleTextSize"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/textColor"
+                android:layout_below="@id/horizontal_line"
+                android:layout_marginTop="@dimen/small_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/detail_event_location"
+                android:layout_below="@id/map_location_label"
+                android:layout_marginTop="@dimen/small_padding"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

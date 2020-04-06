@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".ui.DashboardActivity">
+
+    <!--  Main Content Layout  -->
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dashboard_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/dashboard_label"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/titleTextSize" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_below="@id/dashboard_text"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/small_padding"
+            android:background="@color/secondaryColorAccent" />
+
+        <ImageView
+            android:id="@+id/illustration_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/horizontal_line"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/illustration"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/greeting_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/horizontal_line"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_toStartOf="@id/illustration_image"
+            android:fontFamily="@font/roboto_bold"
+            android:maxLines="3"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/titleTextSize"
+            tools:text="@string/dummy_greeting" />
+
+        <TextView
+            android:id="@+id/upcoming_event_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/illustration_image"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:fontFamily="@font/roboto_regular"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/list_events_label"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/events_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upcoming_event_label"
+            android:clipToPadding="true"
+            tools:listitem="@layout/event_card_item" />
+    </RelativeLayout>
+
+    <!--  Bottom Appbar + FAB Layout  -->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/dashboard_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/colorPrimary"
+        app:fabCradleMargin="@dimen/small_padding"
+        app:menu="@menu/menu"
+        app:navigationIcon="@drawable/ic_menu_white_smoke_24dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dashboard_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondaryColorAccent"
+        app:layout_anchor="@id/dashboard_app_bar"
+        app:srcCompat="@drawable/ic_add_white_smoke_24dp"
+        app:tint="@color/textColor" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

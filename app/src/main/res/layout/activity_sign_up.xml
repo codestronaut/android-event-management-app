@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ui.auth.SignUpActivity">
+
+    <RelativeLayout
+        android:id="@+id/sign_up_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="@dimen/extra_margin"
+        tools:ignore="UselessParent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:hint="@string/email_address"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxStrokeColor="@color/secondaryColorAccent"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/secondaryColorAccent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/new_email_edit_text"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up_input_email"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:hint="@string/password"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxStrokeColor="@color/secondaryColorAccent"
+            app:boxStrokeWidth="2dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/secondaryColorAccent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/new_password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_up_input_password"
+            android:backgroundTint="@color/secondaryColorAccent"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/sign_up"
+            android:textColor="@color/textColor"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/btn_sign_up"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/small_padding"
+            android:alpha="0.5"
+            android:background="@color/textColor" />
+
+        <Button
+            android:id="@+id/btn_have_account"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/horizontal_line"
+            android:layout_centerHorizontal="true"
+            android:text="@string/already_have_account"
+            android:textColor="@color/textColor" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/sign_up_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>
