@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".ui.content.CheckoutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/checkout_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/checkout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/checkout_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/checkout"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/checkout_illustration"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/checkout_appbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/checkout_illustration"
+        android:src="@drawable/checkout" />
+
+    <RelativeLayout
+        android:id="@+id/checkout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/big_margin"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/small_padding">
+
+        <TextView
+            android:id="@+id/checkout_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/small_padding"
+            android:text="@string/event_name_column"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <TextView
+            android:id="@+id/checkout_event_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/checkout_event_name"
+            android:gravity="end"
+            android:maxLines="3"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_e_name" />
+
+        <TextView
+            android:id="@+id/checkout_customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_event_name_text"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/small_padding"
+            android:text="@string/customer_name"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <TextView
+            android:id="@+id/checkout_customer_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_event_name_text"
+            android:layout_toEndOf="@id/checkout_customer_name"
+            android:gravity="end"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_customer_name" />
+
+        <TextView
+            android:id="@+id/checkout_tickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_customer_name_text"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/small_padding"
+            android:text="@string/tickets"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <TextView
+            android:id="@+id/checkout_tickets_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_customer_name_text"
+            android:layout_toEndOf="@id/checkout_tickets"
+            android:gravity="end"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_ticket_number" />
+
+        <TextView
+            android:id="@+id/checkout_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_tickets_text"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/small_padding"
+            android:text="@string/price"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <TextView
+            android:id="@+id/checkout_event_price_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_tickets_text"
+            android:layout_toEndOf="@id/checkout_price"
+            android:gravity="end"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_ticket_price" />
+
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/checkout_price"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/textColor" />
+
+        <TextView
+            android:id="@+id/checkout_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/horizontal_line"
+            android:layout_marginTop="@dimen/small_padding"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/small_padding"
+            android:text="@string/summary_checkout"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/subtitleTextSize" />
+
+        <TextView
+            android:id="@+id/checkout_summary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/horizontal_line"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="@dimen/small_padding"
+            android:layout_toEndOf="@id/checkout_summary"
+            android:gravity="end"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_ticket_price" />
+
+
+        <Button
+            android:id="@+id/btn_buy_now"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkout_summary_text"
+            android:layout_marginTop="@dimen/big_margin"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/confirm_button_text"
+            android:textColor="@color/secondaryColorAccent"
+            app:rippleColor="@color/secondaryColorAccent"
+            app:strokeColor="@color/secondaryColorAccent" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/checkout_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

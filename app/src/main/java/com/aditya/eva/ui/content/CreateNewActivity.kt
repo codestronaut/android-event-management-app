@@ -1,4 +1,4 @@
-package com.aditya.eva.ui
+package com.aditya.eva.ui.content
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -15,6 +15,7 @@ import android.widget.Toast
 import com.aditya.eva.R
 import com.github.ybq.android.spinkit.style.DoubleBounce
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -36,6 +37,7 @@ import java.util.*
 class CreateNewActivity : AppCompatActivity() {
     // Firebase Component
     private val db = Firebase.firestore
+    private lateinit var auth: FirebaseAuth
     private lateinit var storage: FirebaseStorage
     private lateinit var storageRef: StorageReference
     private lateinit var uploadTask: UploadTask
@@ -47,10 +49,11 @@ class CreateNewActivity : AppCompatActivity() {
     private lateinit var eventPlace: String
     private lateinit var eventDescription: String
     private lateinit var eventPrice: String
-    private var isEventPaid: Boolean = false
     private lateinit var events: MutableMap<String, Any>
     private lateinit var filePath: Uri
+    private var isEventPaid: Boolean = false
 
+    // Constant Variable Needed
     companion object {
         const val PICK_IMAGE_REQUEST = 100
     }
@@ -65,13 +68,14 @@ class CreateNewActivity : AppCompatActivity() {
         // Setup firebase component
         storage = Firebase.storage
         storageRef = storage.reference
+        auth = FirebaseAuth.getInstance()
 
         // Setup progress bar indicator
         val doubleBounce = DoubleBounce()
         loading_progress.indeterminateDrawable = doubleBounce
 
         // Configure the custom App Bar
-        configureAppBar()
+        initAppBar()
 
         // Pick date from calendar
         btn_open_calendar.setOnClickListener {
@@ -95,7 +99,7 @@ class CreateNewActivity : AppCompatActivity() {
     /*
     * AppBar configuration function
     * */
-    private fun configureAppBar() {
+    private fun initAppBar() {
         setSupportActionBar(create_page_app_bar)
         val appBar = supportActionBar
         appBar?.setDisplayHomeAsUpEnabled(true)
@@ -115,6 +119,7 @@ class CreateNewActivity : AppCompatActivity() {
         events = mutableMapOf(
             "event_name" to eventName,
             "event_organizer" to eventOrganizer,
+            "event_user" to auth.currentUser?.uid.toString(),
             "event_date" to eventDate,
             "event_place" to eventPlace,
             "event_description" to eventDescription,
@@ -123,6 +128,9 @@ class CreateNewActivity : AppCompatActivity() {
         )
     }
 
+    /*
+    * Open image picker to get event image
+    * */
     private fun pickImage() {
         val intent = Intent()
         intent.type = "image/*"
@@ -131,10 +139,14 @@ class CreateNewActivity : AppCompatActivity() {
             Intent.createChooser(
                 intent,
                 "Select Image from here..."
-            ), PICK_IMAGE_REQUEST
+            ),
+            PICK_IMAGE_REQUEST
         )
     }
 
+    /*
+    * Get image data and return to activity
+    * */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST
@@ -152,6 +164,9 @@ class CreateNewActivity : AppCompatActivity() {
         }
     }
 
+    /*
+    * Upload image to Firebase Storage
+    * */
     private fun uploadData() {
         loading_progress.visibility = View.VISIBLE
         form_content_scroll_view.visibility = View.GONE
@@ -173,7 +188,11 @@ class CreateNewActivity : AppCompatActivity() {
                 events["image_url"] = downloadUri.toString()
                 writeToDb()
             } else {
-                Toast.makeText(this, "URL Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "URL Failed",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -187,14 +206,20 @@ class CreateNewActivity : AppCompatActivity() {
             .add(events)
             .addOnSuccessListener {
                 finish()
-                Snackbar.make(contextView, "Event has been published: $it", Snackbar.LENGTH_SHORT)
-                    .show()
+                Snackbar.make(
+                    contextView,
+                    "Event has been published: $it",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
             .addOnFailureListener {
                 loading_progress.visibility = View.GONE
                 form_content_scroll_view.visibility = View.VISIBLE
-                Snackbar.make(contextView, "Event publishing fail: $it", Snackbar.LENGTH_SHORT)
-                    .show()
+                Snackbar.make(
+                    contextView,
+                    "Event publishing fail: $it",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -232,6 +257,9 @@ class CreateNewActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    /*
+    * Handle menu onClick
+    * */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Save button for publish the event
         if (item.itemId == R.id.save) {

@@ -1,4 +1,4 @@
-package com.aditya.eva.ui.auth
+package com.aditya.eva.ui.authentication
 
 
 import android.content.Intent
@@ -8,7 +8,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import com.aditya.eva.R
-import com.aditya.eva.ui.DashboardActivity
+import com.aditya.eva.ui.content.DashboardActivity
 import com.github.ybq.android.spinkit.style.DoubleBounce
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*

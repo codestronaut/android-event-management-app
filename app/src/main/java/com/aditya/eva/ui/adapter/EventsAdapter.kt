@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.eva.R
 import com.aditya.eva.model.Event
-import com.aditya.eva.ui.detail.DetailActivity
+import com.aditya.eva.ui.content.DetailActivity
 import com.bumptech.glide.Glide
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions

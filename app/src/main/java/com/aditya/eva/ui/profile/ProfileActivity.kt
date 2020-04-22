@@ -1,4 +1,4 @@
-package com.aditya.eva.ui.auth
+package com.aditya.eva.ui.profile
 
 import android.app.Activity
 import android.content.Intent

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/small_padding"
+    android:layout_marginVertical="@dimen/small_padding"
+    android:backgroundTint="@color/colorPrimary"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:id="@+id/ticket_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_padding">
+
+        <ImageView
+            android:id="@+id/item_qr_code_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            tools:ignore="ContentDescription"
+            tools:src="@color/secondaryColorAccent" />
+
+        <TextView
+            android:id="@+id/item_ticket_event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/item_qr_code_image"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/subtitleTextSize"
+            tools:text="@string/dummy_event_ticket_name" />
+
+        <TextView
+            android:id="@+id/item_ticket_event_buyer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_ticket_event_name"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/small_padding"
+            android:layout_toEndOf="@id/item_qr_code_image"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            tools:text="@string/dummy_buyer_name" />
+
+        <TextView
+            android:id="@+id/item_ticket_event_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_ticket_event_buyer"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@id/item_qr_code_image"
+            android:textColor="@color/warningColor"
+            android:textSize="@dimen/mediumTextSize"
+            tools:text="@string/dummy_ticket_price" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

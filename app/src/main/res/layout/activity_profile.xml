@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".ui.auth.ProfileActivity">
+    tools:context=".ui.profile.ProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -41,9 +41,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_profile_image"
-            android:scaleType="centerCrop"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/no_profile" />
 
         <ProgressBar
@@ -84,8 +84,9 @@
         android:id="@+id/btn_save_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/input_display_name"
+        android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
         android:backgroundTint="@color/secondaryColorAccent"
         android:fontFamily="@font/roboto_medium"
         android:padding="@dimen/activity_horizontal_margin"

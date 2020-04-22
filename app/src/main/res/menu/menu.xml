@@ -5,12 +5,24 @@
         android:id="@+id/profile_menu"
         android:icon="@drawable/ic_face_white_smoke_24dp"
         android:title="@string/profile_menu"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/my_event_menu"
+        android:icon="@drawable/ic_date_range_24dp"
+        android:title="@string/my_event"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/my_ticket_menu"
+        android:icon="@drawable/ic_ticket"
+        android:title="@string/my_ticket"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/sign_out_menu"
         android:icon="@drawable/ic_exit_to_app_24dp"
         android:title="@string/sign_out"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
 </menu>

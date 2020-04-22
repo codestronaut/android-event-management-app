@@ -4,7 +4,7 @@
     package="com.aditya.eva">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,21 +15,44 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.detail.DetailActivity"
-            android:parentActivityName=".ui.DashboardActivity">
+        <activity android:name=".ui.user.MyEventActivity"
+            android:parentActivityName=".ui.content.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.DashboardActivity" />
+                android:value=".ui.content.DashboardActivity" />
         </activity>
         <activity
-            android:name=".ui.auth.ProfileActivity"
-            android:parentActivityName=".ui.DashboardActivity">
+            android:name=".ui.user.MyTicketActivity"
+            android:parentActivityName=".ui.content.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.DashboardActivity" />
+                android:value=".ui.content.DashboardActivity" />
         </activity>
-        <activity android:name=".ui.auth.SignUpActivity" />
-        <activity android:name=".ui.auth.SignInActivity">
+        <activity android:name=".ui.content.SuccessActivity" />
+        <activity
+            android:name=".ui.content.CheckoutActivity"
+            android:parentActivityName=".ui.content.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.content.DetailActivity" />
+        </activity>
+        <activity
+            android:name=".ui.content.DetailActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.content.DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.content.DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:parentActivityName=".ui.content.DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.content.DashboardActivity" />
+        </activity>
+        <activity android:name=".ui.authentication.SignUpActivity" />
+        <activity android:name=".ui.authentication.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,13 +60,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.CreateNewActivity"
-            android:parentActivityName=".ui.DashboardActivity">
+            android:name=".ui.content.CreateNewActivity"
+            android:parentActivityName=".ui.content.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.DashboardActivity" />
+                android:value=".ui.content.DashboardActivity" />
         </activity>
-        <activity android:name=".ui.DashboardActivity" />
+        <activity
+            android:name=".ui.content.DashboardActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

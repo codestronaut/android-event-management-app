@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".ui.CreateNewActivity">
+    tools:context=".ui.content.CreateNewActivity">
 
     <ProgressBar
         android:id="@+id/loading_progress"
@@ -63,14 +63,17 @@
 
             <Button
                 android:id="@+id/btn_upload_image"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/preview_image"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                android:backgroundTint="@color/secondaryColorAccent"
                 android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/activity_horizontal_margin"
                 android:text="@string/upload_image"
-                android:textColor="@color/textColor" />
+                android:textColor="@color/secondaryColorAccent"
+                app:rippleColor="@color/secondaryColorAccent"
+                app:strokeColor="@color/secondaryColorAccent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_event_name"
